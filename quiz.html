@@ -338,39 +338,28 @@ async function submitQuiz() {
 
   const followUp = 'inclusive pra adiantar sua proposta exclusiva, com bônus social, me manda:\n\ninformação da placa ou documento de rodar (CRLV)\n\nque no período já combinado e informado por ti, avançamos na conversa ✅\n\nte aguardo. 👊🏽';
 
-  // Use navigator.sendBeacon for reliable delivery even after redirect
-  const headers = {
+  const reqHeaders = {
     'Content-Type': 'application/json',
     'token': UAZAPI_TOKEN
   };
 
-  // Msg 1: video + caption (fire and forget)
+  // Msg 1: video + caption (send immediately)
   try {
-    fetch(UAZAPI_URL + '/send/media', {
+    await fetch(UAZAPI_URL + '/send/media', {
       method: 'POST',
-      headers: headers,
+      headers: reqHeaders,
       body: JSON.stringify({
         number: phone,
         type: 'video',
         file: VIDEO_URL,
         text: caption
-      }),
-      keepalive: true
-    }).catch(function(e) { console.error('Video send error:', e); });
+      })
+    });
   } catch(e) { console.error('Video send error:', e); }
 
-  // Msg 2: follow-up text after 60s - store in localStorage for obrigado page to send
-  const followUpData = JSON.stringify({
-    url: UAZAPI_URL + '/send/text',
-    token: UAZAPI_TOKEN,
-    number: phone,
-    text: followUp,
-    sendAt: Date.now() + 60000
-  });
-  localStorage.setItem('apvs_followup', followUpData);
-
-  // Redirect to thank-you page
-  window.location.href = 'obrigado.html';
+  // Redirect to obrigado with phone + followUp as URL params (obrigado page will send msg2 after 60s)
+  var params = '?p=' + encodeURIComponent(phone) + '&m=' + encodeURIComponent(followUp);
+  window.location.href = 'obrigado.html' + params;
 }
 
 document.addEventListener('keydown', function(e) {

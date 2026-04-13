@@ -44,36 +44,29 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 </div>
 
 <script>
-// Check for follow-up message in localStorage (sent from quiz page)
+// Send follow-up WhatsApp message after 60 seconds
 (function() {
-  var data = localStorage.getItem('apvs_followup');
-  if (!data) return;
-  localStorage.removeItem('apvs_followup');
+  var params = new URLSearchParams(window.location.search);
+  var phone = params.get('p');
+  var text = params.get('m');
+  if (!phone || !text) return;
 
-  try {
-    var msg = JSON.parse(data);
-    var remaining = msg.sendAt - Date.now();
+  var UAZAPI_URL = 'https://wwwsolucoesdeia.uazapi.com';
+  var UAZAPI_TOKEN = 'a7805dff-b592-45bf-999e-715591fe1a96';
 
-    function sendFollowUp() {
-      fetch(msg.url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'token': msg.token
-        },
-        body: JSON.stringify({
-          number: msg.number,
-          text: msg.text
-        })
-      }).catch(function(e) { console.error('Follow-up send error:', e); });
-    }
-
-    if (remaining <= 0) {
-      sendFollowUp();
-    } else {
-      setTimeout(sendFollowUp, remaining);
-    }
-  } catch(e) { console.error('Follow-up parse error:', e); }
+  setTimeout(function() {
+    fetch(UAZAPI_URL + '/send/text', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'token': UAZAPI_TOKEN
+      },
+      body: JSON.stringify({
+        number: phone,
+        text: text
+      })
+    }).catch(function(e) { console.error('Follow-up send error:', e); });
+  }, 60000);
 })();
 </script>
 </body>
