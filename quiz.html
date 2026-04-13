@@ -26,11 +26,11 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 
 .top-banner{background:linear-gradient(90deg,#b91c1c,#dc2626,#b91c1c);text-align:center;padding:11px 16px;font-size:.82rem;font-weight:700;letter-spacing:.3px;margin:0 -20px;animation:fadeIn .5s ease}
 
-.hero{padding:36px 0 28px;text-align:center}
-.hero .logo{width:110px;margin:0 auto 24px;display:block;animation:bounceIn .8s ease}
-.hero h1{font-size:1.3rem;font-weight:900;line-height:1.45;margin-bottom:16px;color:#fff}
+.hero{padding:36px 0 20px;text-align:center}
+.hero .logo{width:110px;margin:0 auto 20px;display:block;animation:bounceIn .8s ease}
+.hero h1{font-size:1.3rem;font-weight:900;line-height:1.45;margin-bottom:12px;color:#fff}
 .hero h1 .hl{color:#facc15}
-.hero .sub-text{font-size:.88rem;color:#cbd5e1;line-height:1.6;padding:0 4px}
+.hero .sub-text{font-size:.88rem;color:#cbd5e1;line-height:1.6;padding:0 4px;margin-bottom:0}
 .hero .sub-text .hl{color:#facc15;font-weight:600}
 
 .cta-section{text-align:center;padding:28px 0 32px}
@@ -39,15 +39,15 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(250,204,21,.35)}
 .btn-cta:active{transform:translateY(0)}
 
-.badge{padding:36px 0 24px;text-align:center}
-.badge .icon{font-size:3rem;margin-bottom:8px;display:block;line-height:1}
-.badge .title{font-size:1.5rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:3px;line-height:1.2}
-.badge .desc{font-size:.88rem;color:#94a3b8;margin-top:6px;font-weight:500;letter-spacing:.3px}
+.badge{padding:16px 0 12px;text-align:center}
+.badge .icon{font-size:2.4rem;margin-bottom:4px;display:block;line-height:1}
+.badge .title{font-size:1.3rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:2.5px;line-height:1.2}
+.badge .desc{font-size:.82rem;color:#94a3b8;margin-top:4px;font-weight:500;letter-spacing:.3px}
 
-.benefits{padding:0 0 32px}
-.benefits-header{text-align:center;margin-bottom:20px}
-.benefits-header h2{font-size:1.15rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:2px}
-.benefits-header p{font-size:.85rem;color:#64748b;margin-top:4px;font-weight:400}
+.benefits{padding:12px 0 32px}
+.benefits-header{text-align:center;margin-bottom:16px}
+.benefits-header h2{font-size:1.05rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:2px}
+.benefits-header p{font-size:.82rem;color:#64748b;margin-top:3px;font-weight:400}
 .benefit{background:linear-gradient(135deg,#0c2247 0%,#0a1e42 100%);border:1px solid #1e3a6e;border-radius:14px;padding:18px 20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;transition:all .3s;opacity:0;animation:slideInLeft .5s ease forwards;min-height:68px}
 .benefit:nth-child(2){animation-delay:.1s}.benefit:nth-child(3){animation-delay:.15s}.benefit:nth-child(4){animation-delay:.2s}.benefit:nth-child(5){animation-delay:.25s}
 .benefit:hover{border-color:#facc15;transform:translateX(4px);box-shadow:0 0 20px rgba(250,204,21,.08)}
@@ -77,6 +77,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .input-field{width:100%;padding:16px 18px;background:#0c2247;border:2px solid #1e3a6e;border-radius:10px;color:#fff;font-size:1.05rem;font-family:inherit;outline:none;transition:all .3s}
 .input-field:focus{border-color:#facc15;box-shadow:0 0 0 4px rgba(250,204,21,.12)}
 .input-field::placeholder{color:#475569}
+.phone-row{display:flex;gap:10px}
+.phone-row .input-field:first-child{width:100px;flex-shrink:0;text-align:center}
+.phone-row .input-field:last-child{flex:1}
 
 .options{display:flex;flex-direction:column;gap:12px}
 .option{position:relative}
@@ -127,7 +130,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
   <div id="hero">
     <div class="hero">
       <img src="Logo-Truck_Prancheta-1.png" alt="APVS Truck" class="logo">
-      <h1 class="fade-up">TE FALAM QUE COBREM TUDO, MAS NÃO TE EXPLICAM <span class="hl">COMO COBRE</span></h1>
+      <h1 class="fade-up">TE FALAM QUE COBREM TUDO, MAS NÃO TE EXPLICAM <span class="hl">COMO COBREM</span></h1>
       <p class="sub-text fade-up fade-up-d1"><span class="hl">Por mais que você já tenha uma proteção até limitada em seu caminhão, parabenizo pela conscientização de buscar uma solução completa e 100% regulada pela SUSEP.</span></p>
     </div>
 
@@ -177,7 +180,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
     <!-- 2: Telefone -->
     <div class="step" data-step="2">
       <div class="step-question">Qual o melhor número pra gente falar sobre o seguro do seu caminhão? <span class="emoji">📞</span></div>
-      <input type="tel" class="input-field" id="q2" placeholder="Digite seu telefone..." autocomplete="tel">
+      <div class="phone-row">
+        <input type="tel" class="input-field" id="q2ddd" placeholder="DDD" maxlength="3" inputmode="numeric" autocomplete="tel-area-code">
+        <input type="tel" class="input-field" id="q2num" placeholder="Número do telefone" inputmode="numeric" autocomplete="tel">
+      </div>
       <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
     </div>
 
@@ -286,17 +292,15 @@ function showStep(n) {
 
 function validate(n) {
   if (n === 1) return document.getElementById('q1').value.trim() !== '';
-  if (n === 2) return document.getElementById('q2').value.trim() !== '';
+  if (n === 2) return document.getElementById('q2ddd').value.trim() !== '' && document.getElementById('q2num').value.trim() !== '';
   return document.querySelector('input[name="q' + n + '"]:checked') !== null;
 }
 
 function next() {
   if (!validate(current)) {
-    if (current <= 2) {
-      showToast('Por favor, preencha seu ' + (current === 1 ? 'nome' : 'telefone'));
-    } else {
-      showToast('Selecione uma opção para continuar');
-    }
+    if (current === 1) { showToast('Por favor, preencha seu nome'); }
+    else if (current === 2) { showToast('Preencha o DDD e o telefone'); }
+    else { showToast('Selecione uma opção para continuar'); }
     return;
   }
   if (current === total) { submitQuiz(); return; }
@@ -313,14 +317,16 @@ function cleanPhone(raw) {
 
 async function submitQuiz() {
   const nome = document.getElementById('q1').value.trim();
-  const telefone = document.getElementById('q2').value.trim();
+  const ddd = document.getElementById('q2ddd').value.trim().replace(/\D/g,'');
+  const telNum = document.getElementById('q2num').value.trim().replace(/\D/g,'');
+  const telefone = '(' + ddd + ') ' + telNum;
   const horario = (document.querySelector('input[name="q3"]:checked')||{}).value||'';
   const perfil = (document.querySelector('input[name="q4"]:checked')||{}).value||'';
   const veiculo = (document.querySelector('input[name="q5"]:checked')||{}).value||'';
   const status = (document.querySelector('input[name="q6"]:checked')||{}).value||'';
   const ano = (document.querySelector('input[name="q7"]:checked')||{}).value||'';
 
-  const phone = cleanPhone(telefone);
+  const phone = '55' + ddd + telNum;
 
   // Show result
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
@@ -376,6 +382,15 @@ async function submitQuiz() {
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Enter' && current > 0 && current <= 2) next();
+});
+
+// Auto-tab DDD -> number
+document.getElementById('q2ddd').addEventListener('input', function() {
+  this.value = this.value.replace(/\D/g,'');
+  if (this.value.length >= 2) document.getElementById('q2num').focus();
+});
+document.getElementById('q2num').addEventListener('input', function() {
+  this.value = this.value.replace(/\D/g,'');
 });
 </script>
 </body>
