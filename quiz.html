@@ -333,12 +333,8 @@ async function submitQuiz() {
 
   const phone = '55' + ddd + telNum;
 
-  // Show thank-you page
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-  document.getElementById('result').classList.add('active');
-  document.getElementById('progress').style.width = '100%';
-  document.getElementById('progressLabel').textContent = '✓';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Redirect to thank-you page
+  window.location.href = 'obrigado.html';
 
   // === SEND WHATSAPP VIA UAZAPI ===
   const caption = 'Fala chefão, grande seu ' + nome + ' do Brasil!! 🚛\n\nacabei de ver que você precisa proteger um ' + veiculo + ' e prefere falar no horário ' + horario + '.\n\ntenho uma excelente condição pra seu perfil e sua realidade. ✅';
