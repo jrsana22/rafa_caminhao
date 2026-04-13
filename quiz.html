@@ -12,7 +12,6 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-height:100vh;display:flex;justify-content:center;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 .page{width:100%;max-width:520px;padding:0 20px}
 
-/* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
@@ -25,10 +24,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .fade-up-d1{animation-delay:.1s}
 .fade-up-d2{animation-delay:.2s}
 
-/* Top Banner */
 .top-banner{background:linear-gradient(90deg,#b91c1c,#dc2626,#b91c1c);text-align:center;padding:11px 16px;font-size:.82rem;font-weight:700;letter-spacing:.3px;margin:0 -20px;animation:fadeIn .5s ease}
 
-/* Hero */
 .hero{padding:36px 0 28px;text-align:center}
 .hero .logo{width:110px;margin:0 auto 24px;display:block;animation:bounceIn .8s ease}
 .hero h1{font-size:1.3rem;font-weight:900;line-height:1.45;margin-bottom:16px;color:#fff}
@@ -36,64 +33,51 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .hero .sub-text{font-size:.88rem;color:#cbd5e1;line-height:1.6;padding:0 4px}
 .hero .sub-text .hl{color:#facc15;font-weight:600}
 
-/* CTA bottom */
 .cta-section{text-align:center;padding:28px 0 32px}
 .btn-cta{display:inline-block;background:linear-gradient(135deg,#facc15,#eab308);color:#001233;font-weight:800;font-size:1.1rem;padding:18px 36px;border:none;border-radius:12px;cursor:pointer;text-transform:uppercase;letter-spacing:.8px;width:100%;font-family:inherit;position:relative;overflow:hidden;transition:all .3s;animation:glow 2s ease-in-out infinite}
 .btn-cta::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:shimmer 2.5s infinite}
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(250,204,21,.35)}
 .btn-cta:active{transform:translateY(0)}
 
-/* Badge */
 .badge{padding:36px 0 24px;text-align:center}
 .badge .icon{font-size:3rem;margin-bottom:8px;display:block;line-height:1}
 .badge .title{font-size:1.5rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:3px;line-height:1.2}
 .badge .desc{font-size:.88rem;color:#94a3b8;margin-top:6px;font-weight:500;letter-spacing:.3px}
 
-/* Benefits */
 .benefits{padding:0 0 32px}
 .benefits-header{text-align:center;margin-bottom:20px}
 .benefits-header h2{font-size:1.15rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:2px}
 .benefits-header p{font-size:.85rem;color:#64748b;margin-top:4px;font-weight:400}
 .benefit{background:linear-gradient(135deg,#0c2247 0%,#0a1e42 100%);border:1px solid #1e3a6e;border-radius:14px;padding:18px 20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;transition:all .3s;opacity:0;animation:slideInLeft .5s ease forwards;min-height:68px}
-.benefit:nth-child(2){animation-delay:.1s}
-.benefit:nth-child(3){animation-delay:.15s}
-.benefit:nth-child(4){animation-delay:.2s}
-.benefit:nth-child(5){animation-delay:.25s}
+.benefit:nth-child(2){animation-delay:.1s}.benefit:nth-child(3){animation-delay:.15s}.benefit:nth-child(4){animation-delay:.2s}.benefit:nth-child(5){animation-delay:.25s}
 .benefit:hover{border-color:#facc15;transform:translateX(4px);box-shadow:0 0 20px rgba(250,204,21,.08)}
 .benefit .bi{font-size:1.8rem;flex-shrink:0;width:44px;height:44px;background:linear-gradient(135deg,#001a4d,#0c2247);border-radius:10px;display:flex;align-items:center;justify-content:center;border:1px solid #1e3a6e}
 .benefit .bt{font-size:.95rem;line-height:1.5;color:#cbd5e1;font-weight:400}
 .benefit .bt strong{color:#fff;font-weight:700}
 
-/* Divider */
 .divider{border:none;border-top:1px solid #1e3a6e;margin:0 -20px}
 
-/* Form intro */
 .form-intro{text-align:center;padding:36px 0 28px}
 .form-intro h2{font-size:1.2rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:.5px;line-height:1.35;margin-bottom:8px}
 .form-intro p{font-size:.82rem;color:#64748b}
 
-/* Quiz */
 .quiz{display:none;padding-bottom:40px}
 .quiz.active{display:block}
 .step{display:none;animation:fadeUp .4s ease}
 .step.active{display:block}
 
-/* Progress */
 .quiz-progress{display:flex;align-items:center;gap:12px;margin-bottom:28px}
 .quiz-progress-bar{flex:1;height:6px;background:#1e3a6e;border-radius:3px;overflow:hidden}
 .quiz-progress-fill{height:100%;background:linear-gradient(90deg,#facc15,#fbbf24);border-radius:3px;transition:width .5s cubic-bezier(.4,0,.2,1)}
 .quiz-progress-label{font-size:.8rem;font-weight:700;color:#94a3b8;white-space:nowrap}
 
-/* Step */
 .step-question{font-size:1.15rem;font-weight:700;line-height:1.45;margin-bottom:22px;color:#fff}
 .step-question .emoji{margin-right:2px}
 
-/* Input */
 .input-field{width:100%;padding:16px 18px;background:#0c2247;border:2px solid #1e3a6e;border-radius:10px;color:#fff;font-size:1.05rem;font-family:inherit;outline:none;transition:all .3s}
 .input-field:focus{border-color:#facc15;box-shadow:0 0 0 4px rgba(250,204,21,.12)}
 .input-field::placeholder{color:#475569}
 
-/* Radio Options */
 .options{display:flex;flex-direction:column;gap:12px}
 .option{position:relative}
 .option input{position:absolute;opacity:0;width:0;height:0}
@@ -101,21 +85,16 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .option label:hover{border-color:#2563eb;background:#0f2d5e;transform:translateX(4px)}
 .option input:checked+label{border-color:#facc15;background:#1a1600;color:#facc15;font-weight:700;box-shadow:0 0 12px rgba(250,204,21,.15)}
 
-/* Buttons */
 .nav{display:flex;gap:12px;margin-top:32px}
 .btn-next{flex:1;padding:16px;background:linear-gradient(135deg,#facc15,#eab308);color:#001233;font-weight:800;font-size:.98rem;border:none;border-radius:10px;cursor:pointer;transition:all .25s;font-family:inherit;position:relative;overflow:hidden}
-.btn-next::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
-.btn-next:hover::after{left:100%}
 .btn-next:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(250,204,21,.3)}
 .btn-next:active{transform:translateY(0)}
 .btn-back{padding:16px 20px;background:transparent;border:2px solid #1e3a6e;color:#64748b;border-radius:10px;cursor:pointer;font-size:.98rem;font-family:inherit;transition:all .25s}
 .btn-back:hover{border-color:#2563eb;color:#fff;background:rgba(37,99,235,.08)}
 
-/* Toast */
 .toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-80px);background:#dc2626;color:#fff;padding:12px 24px;border-radius:8px;font-size:.88rem;font-weight:600;z-index:999;transition:transform .4s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
 
-/* Result */
 .result{display:none;text-align:center;padding:48px 0;animation:bounceIn .6s ease}
 .result.active{display:block}
 .result .icon{font-size:4.5rem;margin-bottom:12px;animation:bounceIn .6s ease}
@@ -127,7 +106,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .summary-label{color:#64748b;font-weight:500}
 .summary-value{color:#fff;font-weight:700;text-align:right;max-width:60%}
 
-/* Sending overlay */
 .sending-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,18,51,.85);z-index:1000;justify-content:center;align-items:center;flex-direction:column;gap:16px}
 .sending-overlay.active{display:flex}
 .spinner{width:40px;height:40px;border:4px solid #1e3a6e;border-top-color:#facc15;border-radius:50%;animation:spin .8s linear infinite}
@@ -136,20 +114,16 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 </head>
 <body>
 
-<!-- Toast -->
 <div class="toast" id="toast">Preencha para continuar</div>
 
-<!-- Sending overlay -->
 <div class="sending-overlay" id="sendingOverlay">
   <div class="spinner"></div>
-  <div class="sending-text">Enviando...</div>
+  <div class="sending-text" id="sendingText">Enviando...</div>
 </div>
 
-<!-- Top Banner -->
 <div class="page">
 <div class="top-banner">⚠️ ACEITAMOS CAMINHÕES E CARRETAS A PARTIR DO ANO DE 1981 ⚠️</div>
 
-  <!-- HERO -->
   <div id="hero">
     <div class="hero">
       <img src="Logo-Truck_Prancheta-1.png" alt="APVS Truck" class="logo">
@@ -168,28 +142,16 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
         <h2>Benefícios Exclusivos</h2>
         <p>Diferenciais que você não vai encontrar em qualquer lugar</p>
       </div>
-      <div class="benefit">
-        <span class="bi">🚛</span>
-        <span class="bt"><strong>Reboque ilimitado</strong> para uma base APVS Truck em caso de sinistro</span>
-      </div>
-      <div class="benefit">
-        <span class="bi">📡</span>
-        <span class="bt"><strong>Rastreador incluso</strong> sem pagar nenhum centavo</span>
-      </div>
-      <div class="benefit">
-        <span class="bi">🛡️</span>
-        <span class="bt"><strong>Sem franquia</strong> para perda total, incêndio, pós colisão e roubo</span>
-      </div>
-      <div class="benefit">
-        <span class="bi">📋</span>
-        <span class="bt"><strong>Plano sem fidelidade</strong> e muitos outros benefícios sociais</span>
-      </div>
+      <div class="benefit"><span class="bi">🚛</span><span class="bt"><strong>Reboque ilimitado</strong> para uma base APVS Truck em caso de sinistro</span></div>
+      <div class="benefit"><span class="bi">📡</span><span class="bt"><strong>Rastreador incluso</strong> sem pagar nenhum centavo</span></div>
+      <div class="benefit"><span class="bi">🛡️</span><span class="bt"><strong>Sem franquia</strong> para perda total, incêndio, pós colisão e roubo</span></div>
+      <div class="benefit"><span class="bi">📋</span><span class="bt"><strong>Plano sem fidelidade</strong> e muitos outros benefícios sociais</span></div>
     </div>
 
     <hr class="divider">
 
     <div class="form-intro">
-      <h2>Responda 5 perguntas rápidas e garanta sua proteção</h2>
+      <h2>Responda 7 perguntas rápidas e garanta sua proteção</h2>
       <p>Leva menos de 2 minutos — sem compromisso</p>
     </div>
 
@@ -198,28 +160,28 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
     </div>
   </div>
 
-  <!-- QUIZ -->
+  <!-- QUIZ - 7 PERGUNTAS -->
   <div id="quiz" class="quiz">
     <div class="quiz-progress">
       <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="progress"></div></div>
-      <div class="quiz-progress-label" id="progressLabel">1 de 5</div>
+      <div class="quiz-progress-label" id="progressLabel">1 de 7</div>
     </div>
 
-    <!-- Step 1: Nome -->
+    <!-- 1: Nome -->
     <div class="step" data-step="1">
       <div class="step-question">Qual o seu nome, meu amigo caminhoneiro? <span class="emoji">😀</span></div>
       <input type="text" class="input-field" id="q1" placeholder="Digite seu nome..." autocomplete="name">
       <div class="nav"><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
     </div>
 
-    <!-- Step 2: Telefone -->
+    <!-- 2: Telefone -->
     <div class="step" data-step="2">
       <div class="step-question">Qual o melhor número pra gente falar sobre o seguro do seu caminhão? <span class="emoji">📞</span></div>
       <input type="tel" class="input-field" id="q2" placeholder="Digite seu telefone..." autocomplete="tel">
       <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
     </div>
 
-    <!-- Step 3: Horário -->
+    <!-- 3: Horário -->
     <div class="step" data-step="3">
       <div class="step-question">Qual o melhor horário pra te ligar?</div>
       <div class="options">
@@ -231,27 +193,50 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
       <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
     </div>
 
-    <!-- Step 4: Veículo -->
+    <!-- 4: Você é -->
     <div class="step" data-step="4">
-      <div class="step-question">Qual veículo você quer proteger agora? <span class="emoji">🚛</span></div>
+      <div class="step-question">Você é:</div>
       <div class="options">
-        <div class="option"><input type="radio" name="q4" id="q4a" value="Cavalo mecânico"><label for="q4a">Cavalo mecânico</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4b" value="Bitrem"><label for="q4b">Bitrem</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4c" value="Rodotrem"><label for="q4c">Rodotrem</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4d" value="LS"><label for="q4d">LS</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4e" value="Truck"><label for="q4e">Truck</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4f" value="Outro"><label for="q4f">Outro</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4a" value="Caminhoneiro autônomo"><label for="q4a">Caminhoneiro autônomo</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4b" value="Tenho 2 a 5 caminhões"><label for="q4b">Tenho 2 a 5 caminhões</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4c" value="Tenho mais de 5 caminhões"><label for="q4c">Tenho mais de 5 caminhões</label></div>
       </div>
       <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
     </div>
 
-    <!-- Step 5: Ano -->
+    <!-- 5: Veículo -->
     <div class="step" data-step="5">
+      <div class="step-question">Qual veículo você quer proteger agora? <span class="emoji">🚛</span></div>
+      <div class="options">
+        <div class="option"><input type="radio" name="q5" id="q5a" value="Cavalo mecânico"><label for="q5a">Cavalo mecânico</label></div>
+        <div class="option"><input type="radio" name="q5" id="q5b" value="Bitrem"><label for="q5b">Bitrem</label></div>
+        <div class="option"><input type="radio" name="q5" id="q5c" value="Rodotrem"><label for="q5c">Rodotrem</label></div>
+        <div class="option"><input type="radio" name="q5" id="q5d" value="LS"><label for="q5d">LS</label></div>
+        <div class="option"><input type="radio" name="q5" id="q5e" value="Truck"><label for="q5e">Truck</label></div>
+        <div class="option"><input type="radio" name="q5" id="q5f" value="Outro"><label for="q5f">Outro</label></div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
+    </div>
+
+    <!-- 6: Status -->
+    <div class="step" data-step="6">
+      <div class="step-question">Seu caminhão hoje está:</div>
+      <div class="options">
+        <div class="option"><input type="radio" name="q6" id="q6a" value="Rodando normalmente"><label for="q6a">Rodando normalmente</label></div>
+        <div class="option"><input type="radio" name="q6" id="q6b" value="Parado"><label for="q6b">Parado</label></div>
+        <div class="option"><input type="radio" name="q6" id="q6c" value="Acabei de comprar"><label for="q6c">Acabei de comprar</label></div>
+        <div class="option"><input type="radio" name="q6" id="q6d" value="Estou cotando proteção"><label for="q6d">Estou cotando proteção</label></div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
+    </div>
+
+    <!-- 7: Ano -->
+    <div class="step" data-step="7">
       <div class="step-question">Qual o ano do seu caminhão?</div>
       <div class="options">
-        <div class="option"><input type="radio" name="q5" id="q5a" value="1981 a 1990"><label for="q5a">De 1981 a 1990</label></div>
-        <div class="option"><input type="radio" name="q5" id="q5b" value="1991 a 2000"><label for="q5b">1991 a 2000</label></div>
-        <div class="option"><input type="radio" name="q5" id="q5c" value="2001 ou mais novo"><label for="q5c">2001 ou mais novo</label></div>
+        <div class="option"><input type="radio" name="q7" id="q7a" value="1981 a 1990"><label for="q7a">De 1981 a 1990</label></div>
+        <div class="option"><input type="radio" name="q7" id="q7b" value="1991 a 2000"><label for="q7b">1991 a 2000</label></div>
+        <div class="option"><input type="radio" name="q7" id="q7c" value="2001 ou mais novo"><label for="q7c">2001 ou mais novo</label></div>
       </div>
       <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">ENVIAR ✓</button></div>
     </div>
@@ -268,14 +253,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 </div>
 
 <script>
-/* ===== CONFIG ===== */
 const UAZAPI_URL = 'https://wwwsolucoesdeia.uazapi.com';
 const UAZAPI_TOKEN = 'a7805dff-b592-45bf-999e-715591fe1a96';
-const UAZAPI_NUMBER = '5511972820592';
 const VIDEO_URL = 'https://azwndzwubtqxfrwkpzbw.supabase.co/storage/v1/object/public/rafa_caminhao/video_rafa.mp4';
 
 let current = 0;
-const total = 5;
+const total = 7;
 
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -293,7 +276,7 @@ function startQuiz() {
 
 function showStep(n) {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-  const el = document.querySelector(`[data-step="${n}"]`);
+  const el = document.querySelector('[data-step="' + n + '"]');
   if (el) el.classList.add('active');
   document.getElementById('progress').style.width = ((n) / total * 100) + '%';
   document.getElementById('progressLabel').textContent = n + ' de ' + total;
@@ -304,7 +287,7 @@ function showStep(n) {
 function validate(n) {
   if (n === 1) return document.getElementById('q1').value.trim() !== '';
   if (n === 2) return document.getElementById('q2').value.trim() !== '';
-  return document.querySelector(`input[name="q${n}"]:checked`) !== null;
+  return document.querySelector('input[name="q' + n + '"]:checked') !== null;
 }
 
 function next() {
@@ -323,63 +306,65 @@ function next() {
 function back() { if (current > 1) showStep(current - 1); }
 
 function cleanPhone(raw) {
-  let digits = raw.replace(/\D/g, '');
-  if (!digits.startsWith('55')) digits = '55' + digits;
-  return digits;
+  let d = raw.replace(/\D/g, '');
+  if (!d.startsWith('55')) d = '55' + d;
+  return d;
 }
 
 async function submitQuiz() {
   const nome = document.getElementById('q1').value.trim();
   const telefone = document.getElementById('q2').value.trim();
   const horario = (document.querySelector('input[name="q3"]:checked')||{}).value||'';
-  const veiculo = (document.querySelector('input[name="q4"]:checked')||{}).value||'';
-  const ano = (document.querySelector('input[name="q5"]:checked')||{}).value||'';
+  const perfil = (document.querySelector('input[name="q4"]:checked')||{}).value||'';
+  const veiculo = (document.querySelector('input[name="q5"]:checked')||{}).value||'';
+  const status = (document.querySelector('input[name="q6"]:checked')||{}).value||'';
+  const ano = (document.querySelector('input[name="q7"]:checked')||{}).value||'';
 
   const phone = cleanPhone(telefone);
 
-  // Show summary
+  // Show result
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-  const labels = ['Nome','Telefone','Horário','Veículo','Ano'];
-  const vals = [nome, telefone, horario, veiculo, ano];
-  document.getElementById('summary').innerHTML = labels.map((l,i) =>
-    `<div class="summary-row"><span class="summary-label">${l}</span><span class="summary-value">${vals[i]}</span></div>`
-  ).join('');
+  const labels = ['Nome','Telefone','Horário','Perfil','Veículo','Status','Ano'];
+  const vals = [nome, telefone, horario, perfil, veiculo, status, ano];
+  document.getElementById('summary').innerHTML = labels.map(function(l,i) {
+    return '<div class="summary-row"><span class="summary-label">' + l + '</span><span class="summary-value">' + vals[i] + '</span></div>';
+  }).join('');
   document.getElementById('result').classList.add('active');
   document.getElementById('progress').style.width = '100%';
   document.getElementById('progressLabel').textContent = '✓';
   window.scrollTo({top: 0, behavior: 'smooth'});
 
-  // === SEND WHATSAPP ===
-  const caption = `Fala chefão, grande seu ${nome} do Brasil!! 🚛\n\nacabei de ver que você precisa proteger um ${veiculo} e prefere falar no horário ${horario}.\n\ntenho uma excelente condição pra seu perfil e sua realidade. ✅`;
+  // === SEND WHATSAPP VIA UAZAPI ===
+  const caption = 'Fala chefão, grande seu ' + nome + ' do Brasil!! 🚛\n\nacabei de ver que você precisa proteger um ' + veiculo + ' e prefere falar no horário ' + horario + '.\n\ntenho uma excelente condição pra seu perfil e sua realidade. ✅';
 
-  const followUp = `inclusive pra adiantar sua proposta exclusiva, com bônus social, me manda:\n\ninformação da placa ou documento de rodar (CRLV)\n\nque no período já combinado e informado por ti, avançamos na conversa ✅\n\nte aguardo. 👊🏽`;
+  const followUp = 'inclusive pra adiantar sua proposta exclusiva, com bônus social, me manda:\n\ninformação da placa ou documento de rodar (CRLV)\n\nque no período já combinado e informado por ti, avançamos na conversa ✅\n\nte aguardo. 👊🏽';
 
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + UAZAPI_TOKEN
-  };
-
-  // Message 1: video + caption
+  // Msg 1: video + caption
   try {
-    await fetch(UAZAPI_URL + '/message/send-media', {
+    await fetch(UAZAPI_URL + '/send/media', {
       method: 'POST',
-      headers: headers,
+      headers: {
+        'Content-Type': 'application/json',
+        'token': UAZAPI_TOKEN
+      },
       body: JSON.stringify({
         number: phone,
-        media: VIDEO_URL,
-        mediatype: 'video',
-        caption: caption,
-        mimeType: 'video/mp4'
+        type: 'video',
+        file: VIDEO_URL,
+        text: caption
       })
     });
   } catch(e) { console.error('Video send error:', e); }
 
-  // Message 2: follow-up text after 60 seconds
-  setTimeout(async () => {
+  // Msg 2: follow-up text after 60s
+  setTimeout(async function() {
     try {
-      await fetch(UAZAPI_URL + '/message/send-text', {
+      await fetch(UAZAPI_URL + '/send/text', {
         method: 'POST',
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'token': UAZAPI_TOKEN
+        },
         body: JSON.stringify({
           number: phone,
           text: followUp
@@ -389,7 +374,7 @@ async function submitQuiz() {
   }, 60000);
 }
 
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', function(e) {
   if (e.key === 'Enter' && current > 0 && current <= 2) next();
 });
 </script>
