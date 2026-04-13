@@ -333,47 +333,44 @@ async function submitQuiz() {
 
   const phone = '55' + ddd + telNum;
 
-  // Redirect to thank-you page
-  window.location.href = 'obrigado.html';
-
   // === SEND WHATSAPP VIA UAZAPI ===
   const caption = 'Fala chefão, grande seu ' + nome + ' do Brasil!! 🚛\n\nacabei de ver que você precisa proteger um ' + veiculo + ' e prefere falar no horário ' + horario + '.\n\ntenho uma excelente condição pra seu perfil e sua realidade. ✅';
 
   const followUp = 'inclusive pra adiantar sua proposta exclusiva, com bônus social, me manda:\n\ninformação da placa ou documento de rodar (CRLV)\n\nque no período já combinado e informado por ti, avançamos na conversa ✅\n\nte aguardo. 👊🏽';
 
-  // Msg 1: video + caption
+  // Use navigator.sendBeacon for reliable delivery even after redirect
+  const headers = {
+    'Content-Type': 'application/json',
+    'token': UAZAPI_TOKEN
+  };
+
+  // Msg 1: video + caption (fire and forget)
   try {
-    await fetch(UAZAPI_URL + '/send/media', {
+    fetch(UAZAPI_URL + '/send/media', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'token': UAZAPI_TOKEN
-      },
+      headers: headers,
       body: JSON.stringify({
         number: phone,
         type: 'video',
         file: VIDEO_URL,
         text: caption
-      })
-    });
+      }),
+      keepalive: true
+    }).catch(function(e) { console.error('Video send error:', e); });
   } catch(e) { console.error('Video send error:', e); }
 
-  // Msg 2: follow-up text after 60s
-  setTimeout(async function() {
-    try {
-      await fetch(UAZAPI_URL + '/send/text', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'token': UAZAPI_TOKEN
-        },
-        body: JSON.stringify({
-          number: phone,
-          text: followUp
-        })
-      });
-    } catch(e) { console.error('Follow-up send error:', e); }
-  }, 60000);
+  // Msg 2: follow-up text after 60s - store in localStorage for obrigado page to send
+  const followUpData = JSON.stringify({
+    url: UAZAPI_URL + '/send/text',
+    token: UAZAPI_TOKEN,
+    number: phone,
+    text: followUp,
+    sendAt: Date.now() + 60000
+  });
+  localStorage.setItem('apvs_followup', followUpData);
+
+  // Redirect to thank-you page
+  window.location.href = 'obrigado.html';
 }
 
 document.addEventListener('keydown', function(e) {

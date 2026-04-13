@@ -42,5 +42,39 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
     <div class="footer">🚛 <a href="https://apvstruck.clubmindrecrutamento.com.br">APVS Truck</a> — A Proteção da Pesada</div>
   </div>
 </div>
+
+<script>
+// Check for follow-up message in localStorage (sent from quiz page)
+(function() {
+  var data = localStorage.getItem('apvs_followup');
+  if (!data) return;
+  localStorage.removeItem('apvs_followup');
+
+  try {
+    var msg = JSON.parse(data);
+    var remaining = msg.sendAt - Date.now();
+
+    function sendFollowUp() {
+      fetch(msg.url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'token': msg.token
+        },
+        body: JSON.stringify({
+          number: msg.number,
+          text: msg.text
+        })
+      }).catch(function(e) { console.error('Follow-up send error:', e); });
+    }
+
+    if (remaining <= 0) {
+      sendFollowUp();
+    } else {
+      setTimeout(sendFollowUp, remaining);
+    }
+  } catch(e) { console.error('Follow-up parse error:', e); }
+})();
+</script>
 </body>
 </html>
