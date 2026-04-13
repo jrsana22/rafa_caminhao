@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APVS Truck - Proteção para Caminhoneiros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-height:100vh;display:flex;justify-content:center;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.page{width:100%;max-width:520px;padding:0 20px}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes bounceIn{0%{opacity:0;transform:scale(.3)}50%{transform:scale(1.05)}70%{transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
+@keyframes glow{0%,100%{box-shadow:0 0 8px rgba(250,204,21,.3)}50%{box-shadow:0 0 24px rgba(250,204,21,.5)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.fade-up{opacity:0;animation:fadeUp .6s ease forwards}
+.fade-up-d1{animation-delay:.1s}
+.fade-up-d2{animation-delay:.2s}
+
+/* Top Banner */
+.top-banner{background:linear-gradient(90deg,#b91c1c,#dc2626,#b91c1c);text-align:center;padding:11px 16px;font-size:.82rem;font-weight:700;letter-spacing:.3px;margin:0 -20px;animation:fadeIn .5s ease}
+
+/* Hero */
+.hero{padding:36px 0 28px;text-align:center}
+.hero .logo{width:110px;margin:0 auto 24px;display:block;animation:bounceIn .8s ease}
+.hero h1{font-size:1.3rem;font-weight:900;line-height:1.45;margin-bottom:16px;color:#fff}
+.hero h1 .hl{color:#facc15}
+.hero .sub-text{font-size:.88rem;color:#cbd5e1;line-height:1.6;padding:0 4px}
+.hero .sub-text .hl{color:#facc15;font-weight:600}
+
+/* CTA bottom */
+.cta-section{text-align:center;padding:28px 0 32px}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,#facc15,#eab308);color:#001233;font-weight:800;font-size:1.1rem;padding:18px 36px;border:none;border-radius:12px;cursor:pointer;text-transform:uppercase;letter-spacing:.8px;width:100%;font-family:inherit;position:relative;overflow:hidden;transition:all .3s;animation:glow 2s ease-in-out infinite}
+.btn-cta::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:shimmer 2.5s infinite}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(250,204,21,.35)}
+.btn-cta:active{transform:translateY(0)}
+
+/* Badge */
+.badge{padding:36px 0 24px;text-align:center}
+.badge .icon{font-size:3rem;margin-bottom:8px;display:block;line-height:1}
+.badge .title{font-size:1.5rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:3px;line-height:1.2}
+.badge .desc{font-size:.88rem;color:#94a3b8;margin-top:6px;font-weight:500;letter-spacing:.3px}
+
+/* Benefits */
+.benefits{padding:0 0 32px}
+.benefits-header{text-align:center;margin-bottom:20px}
+.benefits-header h2{font-size:1.15rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:2px}
+.benefits-header p{font-size:.85rem;color:#64748b;margin-top:4px;font-weight:400}
+.benefit{background:linear-gradient(135deg,#0c2247 0%,#0a1e42 100%);border:1px solid #1e3a6e;border-radius:14px;padding:18px 20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;transition:all .3s;opacity:0;animation:slideInLeft .5s ease forwards;min-height:68px}
+.benefit:nth-child(2){animation-delay:.1s}
+.benefit:nth-child(3){animation-delay:.15s}
+.benefit:nth-child(4){animation-delay:.2s}
+.benefit:nth-child(5){animation-delay:.25s}
+.benefit:hover{border-color:#facc15;transform:translateX(4px);box-shadow:0 0 20px rgba(250,204,21,.08)}
+.benefit .bi{font-size:1.8rem;flex-shrink:0;width:44px;height:44px;background:linear-gradient(135deg,#001a4d,#0c2247);border-radius:10px;display:flex;align-items:center;justify-content:center;border:1px solid #1e3a6e}
+.benefit .bt{font-size:.95rem;line-height:1.5;color:#cbd5e1;font-weight:400}
+.benefit .bt strong{color:#fff;font-weight:700}
+
+/* Divider */
+.divider{border:none;border-top:1px solid #1e3a6e;margin:0 -20px}
+
+/* Form intro */
+.form-intro{text-align:center;padding:36px 0 28px}
+.form-intro h2{font-size:1.2rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:.5px;line-height:1.35;margin-bottom:8px}
+.form-intro p{font-size:.82rem;color:#64748b}
+
+/* Quiz */
+.quiz{display:none;padding-bottom:40px}
+.quiz.active{display:block}
+.step{display:none;animation:fadeUp .4s ease}
+.step.active{display:block}
+
+/* Progress */
+.quiz-progress{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.quiz-progress-bar{flex:1;height:6px;background:#1e3a6e;border-radius:3px;overflow:hidden}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,#facc15,#fbbf24);border-radius:3px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.quiz-progress-label{font-size:.8rem;font-weight:700;color:#94a3b8;white-space:nowrap}
+
+/* Step */
+.step-question{font-size:1.15rem;font-weight:700;line-height:1.45;margin-bottom:22px;color:#fff}
+.step-question .emoji{margin-right:2px}
+
+/* Input */
+.input-field{width:100%;padding:16px 18px;background:#0c2247;border:2px solid #1e3a6e;border-radius:10px;color:#fff;font-size:1.05rem;font-family:inherit;outline:none;transition:all .3s}
+.input-field:focus{border-color:#facc15;box-shadow:0 0 0 4px rgba(250,204,21,.12)}
+.input-field::placeholder{color:#475569}
+
+/* Radio Options */
+.options{display:flex;flex-direction:column;gap:12px}
+.option{position:relative}
+.option input{position:absolute;opacity:0;width:0;height:0}
+.option label{display:block;padding:16px 18px;background:#0c2247;border:2px solid #1e3a6e;border-radius:10px;cursor:pointer;font-size:.98rem;font-weight:500;color:#e2e8f0;transition:all .25s}
+.option label:hover{border-color:#2563eb;background:#0f2d5e;transform:translateX(4px)}
+.option input:checked+label{border-color:#facc15;background:#1a1600;color:#facc15;font-weight:700;box-shadow:0 0 12px rgba(250,204,21,.15)}
+
+/* Buttons */
+.nav{display:flex;gap:12px;margin-top:32px}
+.btn-next{flex:1;padding:16px;background:linear-gradient(135deg,#facc15,#eab308);color:#001233;font-weight:800;font-size:.98rem;border:none;border-radius:10px;cursor:pointer;transition:all .25s;font-family:inherit;position:relative;overflow:hidden}
+.btn-next::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+.btn-next:hover::after{left:100%}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(250,204,21,.3)}
+.btn-next:active{transform:translateY(0)}
+.btn-back{padding:16px 20px;background:transparent;border:2px solid #1e3a6e;color:#64748b;border-radius:10px;cursor:pointer;font-size:.98rem;font-family:inherit;transition:all .25s}
+.btn-back:hover{border-color:#2563eb;color:#fff;background:rgba(37,99,235,.08)}
+
+/* Toast */
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-80px);background:#dc2626;color:#fff;padding:12px 24px;border-radius:8px;font-size:.88rem;font-weight:600;z-index:999;transition:transform .4s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Result */
+.result{display:none;text-align:center;padding:48px 0;animation:bounceIn .6s ease}
+.result.active{display:block}
+.result .icon{font-size:4.5rem;margin-bottom:12px;animation:bounceIn .6s ease}
+.result h2{font-size:1.35rem;font-weight:800;color:#facc15;margin-bottom:10px}
+.result p{color:#94a3b8;font-size:.92rem;line-height:1.5;margin-bottom:28px}
+.summary{text-align:left;background:#0c2247;border:1px solid #1e3a6e;border-radius:12px;padding:18px;margin-bottom:28px}
+.summary-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #1e3a6e;font-size:.88rem}
+.summary-row:last-child{border-bottom:none}
+.summary-label{color:#64748b;font-weight:500}
+.summary-value{color:#fff;font-weight:700;text-align:right;max-width:60%}
+
+/* Sending overlay */
+.sending-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,18,51,.85);z-index:1000;justify-content:center;align-items:center;flex-direction:column;gap:16px}
+.sending-overlay.active{display:flex}
+.spinner{width:40px;height:40px;border:4px solid #1e3a6e;border-top-color:#facc15;border-radius:50%;animation:spin .8s linear infinite}
+.sending-text{color:#facc15;font-weight:700;font-size:1rem}
+</style>
+</head>
+<body>
+
+<!-- Toast -->
+<div class="toast" id="toast">Preencha para continuar</div>
+
+<!-- Sending overlay -->
+<div class="sending-overlay" id="sendingOverlay">
+  <div class="spinner"></div>
+  <div class="sending-text">Enviando...</div>
+</div>
+
+<!-- Top Banner -->
+<div class="page">
+<div class="top-banner">⚠️ ACEITAMOS CAMINHÕES E CARRETAS A PARTIR DO ANO DE 1981 ⚠️</div>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero">
+      <img src="Logo-Truck_Prancheta-1.png" alt="APVS Truck" class="logo">
+      <h1 class="fade-up">TE FALAM QUE COBREM TUDO, MAS NÃO TE EXPLICAM <span class="hl">COMO COBRE</span></h1>
+      <p class="sub-text fade-up fade-up-d1"><span class="hl">Por mais que você já tenha uma proteção até limitada em seu caminhão, parabenizo pela conscientização de buscar uma solução completa e 100% regulada pela SUSEP.</span></p>
+    </div>
+
+    <div class="badge fade-up fade-up-d2">
+      <div class="icon">🚛</div>
+      <div class="title">A Proteção da Pesada</div>
+      <div class="desc">Benefícios exclusivos com a APVS Truck</div>
+    </div>
+
+    <div class="benefits">
+      <div class="benefits-header fade-up fade-up-d2">
+        <h2>Benefícios Exclusivos</h2>
+        <p>Diferenciais que você não vai encontrar em qualquer lugar</p>
+      </div>
+      <div class="benefit">
+        <span class="bi">🚛</span>
+        <span class="bt"><strong>Reboque ilimitado</strong> para uma base APVS Truck em caso de sinistro</span>
+      </div>
+      <div class="benefit">
+        <span class="bi">📡</span>
+        <span class="bt"><strong>Rastreador incluso</strong> sem pagar nenhum centavo</span>
+      </div>
+      <div class="benefit">
+        <span class="bi">🛡️</span>
+        <span class="bt"><strong>Sem franquia</strong> para perda total, incêndio, pós colisão e roubo</span>
+      </div>
+      <div class="benefit">
+        <span class="bi">📋</span>
+        <span class="bt"><strong>Plano sem fidelidade</strong> e muitos outros benefícios sociais</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="form-intro">
+      <h2>Responda 5 perguntas rápidas e garanta sua proteção</h2>
+      <p>Leva menos de 2 minutos — sem compromisso</p>
+    </div>
+
+    <div class="cta-section">
+      <button class="btn-cta" onclick="startQuiz()">QUERO MINHA PROTEÇÃO AGORA ↓</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="quiz">
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="progress"></div></div>
+      <div class="quiz-progress-label" id="progressLabel">1 de 5</div>
+    </div>
+
+    <!-- Step 1: Nome -->
+    <div class="step" data-step="1">
+      <div class="step-question">Qual o seu nome, meu amigo caminhoneiro? <span class="emoji">😀</span></div>
+      <input type="text" class="input-field" id="q1" placeholder="Digite seu nome..." autocomplete="name">
+      <div class="nav"><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
+    </div>
+
+    <!-- Step 2: Telefone -->
+    <div class="step" data-step="2">
+      <div class="step-question">Qual o melhor número pra gente falar sobre o seguro do seu caminhão? <span class="emoji">📞</span></div>
+      <input type="tel" class="input-field" id="q2" placeholder="Digite seu telefone..." autocomplete="tel">
+      <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
+    </div>
+
+    <!-- Step 3: Horário -->
+    <div class="step" data-step="3">
+      <div class="step-question">Qual o melhor horário pra te ligar?</div>
+      <div class="options">
+        <div class="option"><input type="radio" name="q3" id="q3a" value="Agora"><label for="q3a">Agora</label></div>
+        <div class="option"><input type="radio" name="q3" id="q3b" value="Manhã"><label for="q3b">Manhã</label></div>
+        <div class="option"><input type="radio" name="q3" id="q3c" value="Tarde"><label for="q3c">Tarde</label></div>
+        <div class="option"><input type="radio" name="q3" id="q3d" value="Noite"><label for="q3d">Noite</label></div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
+    </div>
+
+    <!-- Step 4: Veículo -->
+    <div class="step" data-step="4">
+      <div class="step-question">Qual veículo você quer proteger agora? <span class="emoji">🚛</span></div>
+      <div class="options">
+        <div class="option"><input type="radio" name="q4" id="q4a" value="Cavalo mecânico"><label for="q4a">Cavalo mecânico</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4b" value="Bitrem"><label for="q4b">Bitrem</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4c" value="Rodotrem"><label for="q4c">Rodotrem</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4d" value="LS"><label for="q4d">LS</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4e" value="Truck"><label for="q4e">Truck</label></div>
+        <div class="option"><input type="radio" name="q4" id="q4f" value="Outro"><label for="q4f">Outro</label></div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">PRÓXIMA PERGUNTA →</button></div>
+    </div>
+
+    <!-- Step 5: Ano -->
+    <div class="step" data-step="5">
+      <div class="step-question">Qual o ano do seu caminhão?</div>
+      <div class="options">
+        <div class="option"><input type="radio" name="q5" id="q5a" value="1981 a 1990"><label for="q5a">De 1981 a 1990</label></div>
+        <div class="option"><input type="radio" name="q5" id="q5b" value="1991 a 2000"><label for="q5b">1991 a 2000</label></div>
+        <div class="option"><input type="radio" name="q5" id="q5c" value="2001 ou mais novo"><label for="q5c">2001 ou mais novo</label></div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back()">← Voltar</button><button class="btn-next" onclick="next()">ENVIAR ✓</button></div>
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="result">
+      <div class="icon">✅</div>
+      <h2>Recebemos suas informações!</h2>
+      <p>Vamos entrar em contato pra apresentar a proteção ideal pro seu caminhão.</p>
+      <div class="summary" id="summary"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ===== CONFIG ===== */
+const UAZAPI_URL = 'https://wwwsolucoesdeia.uazapi.com';
+const UAZAPI_TOKEN = 'a7805dff-b592-45bf-999e-715591fe1a96';
+const UAZAPI_NUMBER = '5511972820592';
+// Set this to the public URL of video_rafa.mp4 when hosted
+const VIDEO_URL = 'video_rafa.mp4';
+
+let current = 0;
+const total = 5;
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function startQuiz() {
+  document.getElementById('hero').style.display = 'none';
+  document.getElementById('quiz').classList.add('active');
+  showStep(1);
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const el = document.querySelector(`[data-step="${n}"]`);
+  if (el) el.classList.add('active');
+  document.getElementById('progress').style.width = ((n) / total * 100) + '%';
+  document.getElementById('progressLabel').textContent = n + ' de ' + total;
+  current = n;
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function validate(n) {
+  if (n === 1) return document.getElementById('q1').value.trim() !== '';
+  if (n === 2) return document.getElementById('q2').value.trim() !== '';
+  return document.querySelector(`input[name="q${n}"]:checked`) !== null;
+}
+
+function next() {
+  if (!validate(current)) {
+    if (current <= 2) {
+      showToast('Por favor, preencha seu ' + (current === 1 ? 'nome' : 'telefone'));
+    } else {
+      showToast('Selecione uma opção para continuar');
+    }
+    return;
+  }
+  if (current === total) { submitQuiz(); return; }
+  showStep(current + 1);
+}
+
+function back() { if (current > 1) showStep(current - 1); }
+
+function cleanPhone(raw) {
+  let digits = raw.replace(/\D/g, '');
+  if (!digits.startsWith('55')) digits = '55' + digits;
+  return digits;
+}
+
+async function submitQuiz() {
+  const nome = document.getElementById('q1').value.trim();
+  const telefone = document.getElementById('q2').value.trim();
+  const horario = (document.querySelector('input[name="q3"]:checked')||{}).value||'';
+  const veiculo = (document.querySelector('input[name="q4"]:checked')||{}).value||'';
+  const ano = (document.querySelector('input[name="q5"]:checked')||{}).value||'';
+
+  const phone = cleanPhone(telefone);
+
+  // Show summary
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const labels = ['Nome','Telefone','Horário','Veículo','Ano'];
+  const vals = [nome, telefone, horario, veiculo, ano];
+  document.getElementById('summary').innerHTML = labels.map((l,i) =>
+    `<div class="summary-row"><span class="summary-label">${l}</span><span class="summary-value">${vals[i]}</span></div>`
+  ).join('');
+  document.getElementById('result').classList.add('active');
+  document.getElementById('progress').style.width = '100%';
+  document.getElementById('progressLabel').textContent = '✓';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+
+  // === SEND WHATSAPP ===
+  const caption = `Fala chefão, grande seu ${nome} do Brasil!! 🚛\n\nacabei de ver que você precisa proteger um ${veiculo} e prefere falar no horário ${horario}.\n\ntenho uma excelente condição pra seu perfil e sua realidade. ✅`;
+
+  const followUp = `inclusive pra adiantar sua proposta exclusiva, com bônus social, me manda:\n\ninformação da placa ou documento de rodar (CRLV)\n\nque no período já combinado e informado por ti, avançamos na conversa ✅\n\nte aguardo. 👊🏽`;
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + UAZAPI_TOKEN
+  };
+
+  // Message 1: video + caption
+  try {
+    await fetch(UAZAPI_URL + '/message/send-media', {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify({
+        number: phone,
+        media: VIDEO_URL,
+        mediatype: 'video',
+        caption: caption,
+        mimeType: 'video/mp4'
+      })
+    });
+  } catch(e) { console.error('Video send error:', e); }
+
+  // Message 2: follow-up text after 60 seconds
+  setTimeout(async () => {
+    try {
+      await fetch(UAZAPI_URL + '/message/send-text', {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({
+          number: phone,
+          text: followUp
+        })
+      });
+    } catch(e) { console.error('Follow-up send error:', e); }
+  }, 60000);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && current > 0 && current <= 2) next();
+});
+</script>
+</body>
+</html>
