@@ -44,12 +44,17 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 </div>
 
 <script>
-// Send follow-up WhatsApp message after 60 seconds
+// Send follow-up WhatsApp message after 60 seconds (only once per phone)
 (function() {
   var params = new URLSearchParams(window.location.search);
   var phone = params.get('p');
   var text = params.get('m');
   if (!phone || !text) return;
+
+  // Prevent duplicate sends on page reload
+  var sentKey = 'msg2_sent_' + phone;
+  if (localStorage.getItem(sentKey)) return;
+  localStorage.setItem(sentKey, Date.now().toString());
 
   var UAZAPI_URL = 'https://wwwsolucoesdeia.uazapi.com';
   var UAZAPI_TOKEN = 'a7805dff-b592-45bf-999e-715591fe1a96';
@@ -65,8 +70,15 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
         number: phone,
         text: text
       })
+    }).then(function() {
+      console.log('Msg 2 (follow-up) sent successfully');
     }).catch(function(e) { console.error('Follow-up send error:', e); });
   }, 60000);
+
+  // Clean up localStorage after 5 minutes to avoid stale entries
+  setTimeout(function() {
+    localStorage.removeItem(sentKey);
+  }, 300000);
 })();
 </script>
 </body>

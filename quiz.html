@@ -320,7 +320,10 @@ function cleanPhone(raw) {
   return d;
 }
 
+var submitting = false;
 async function submitQuiz() {
+  if (submitting) return;
+  submitting = true;
   const nome = document.getElementById('q1').value.trim();
   const ddd = document.getElementById('q2ddd').value.trim().replace(/\D/g,'');
   const telNum = document.getElementById('q2num').value.trim().replace(/\D/g,'');
