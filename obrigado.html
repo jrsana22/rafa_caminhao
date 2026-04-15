@@ -25,9 +25,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .obrigado .footer a{color:#facc15;text-decoration:none;font-weight:600}
 .obrigado .brand-footer{text-align:center;padding:28px 0 0;animation:fadeUp .5s ease .6s both;border-top:1px solid #1e3a6e;margin-top:28px}
 .obrigado .brand-footer-label{font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:12px}
-.obrigado .brand-footer-logos{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}
-.obrigado .brand-footer-logos img{height:26px;width:auto;opacity:.55;filter:brightness(0) invert(1);transition:all .3s}
-.obrigado .brand-footer-logos img:hover{opacity:1;transform:scale(1.12);filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(250,204,21,.35))}
+.obrigado .brand-footer-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:center;justify-items:center;margin-bottom:8px}
+.obrigado .brand-logo-card{border:1px solid rgba(250,204,21,.2);border-radius:8px;padding:10px 6px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 6px rgba(250,204,21,.06)}
+.obrigado .brand-footer-logos img{height:24px;width:auto;max-width:70px;object-fit:contain}
 .obrigado .brand-footer-sublabel{font-size:.6rem;color:#475569;text-transform:uppercase;letter-spacing:1.2px;font-weight:500;margin:14px 0 10px}
 </style>
 </head>
@@ -49,18 +49,18 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
       <div class="brand-footer">
         <div class="brand-footer-label">Montadoras</div>
         <div class="brand-footer-logos">
-          <img src="scania.svg" alt="Scania">
-          <img src="volvo-logo-1.svg" alt="Volvo">
-          <img src="volkswagen-9.svg" alt="Volkswagen">
-          <img src="daf_caminhoes.png" alt="DAF">
-          <img src="man-1.svg" alt="MAN">
-          <img src="mercedes-benz-8.svg" alt="Mercedes-Benz">
+          <div class="brand-logo-card"><img src="scania.svg" alt="Scania"></div>
+          <div class="brand-logo-card"><img src="volvo-logo-1.svg" alt="Volvo"></div>
+          <div class="brand-logo-card"><img src="volkswagen-9.svg" alt="Volkswagen"></div>
+          <div class="brand-logo-card"><img src="daf_caminhoes.png" alt="DAF"></div>
+          <div class="brand-logo-card"><img src="man-1.svg" alt="MAN"></div>
+          <div class="brand-logo-card"><img src="mercedes-benz-8.svg" alt="Mercedes-Benz"></div>
         </div>
         <div class="brand-footer-sublabel">Agregados</div>
         <div class="brand-footer-logos">
-          <img src="librelato.jpeg" alt="Librelato">
-          <img src="randon.jpg" alt="Randon">
-          <img src="guerra.jpg" alt="Guerra">
+          <div class="brand-logo-card"><img src="librelato.jpeg" alt="Librelato"></div>
+          <div class="brand-logo-card"><img src="randon.jpg" alt="Randon"></div>
+          <div class="brand-logo-card"><img src="guerra.jpg" alt="Guerra"></div>
         </div>
       </div>
     </div>

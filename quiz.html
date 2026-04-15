@@ -28,18 +28,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 
 .hero{padding:36px 0 20px;text-align:center}
 .hero .logo{width:110px;margin:0 auto 20px;display:block;animation:bounceIn .8s ease}
-.hero h1{font-size:1.3rem;font-weight:900;line-height:1.45;margin-bottom:12px;color:#fff}
+.hero h1{font-size:1.3rem;font-weight:900;line-height:1.45;margin-bottom:4px;color:#fff}
 .hero h1 .hl{color:#facc15}
 .hero .sub-text{font-size:.88rem;color:#cbd5e1;line-height:1.6;padding:0 4px;margin-bottom:0}
 .hero .sub-text .hl{color:#facc15;font-weight:600}
 
 .exclusive-text{font-size:1.05rem;font-weight:800;color:#facc15;text-align:center;line-height:1.5;padding:14px 18px;background:linear-gradient(135deg,rgba(250,204,21,.1) 0%,rgba(234,179,8,.06) 100%);border:2px solid rgba(250,204,21,.35);border-radius:12px;margin:8px 0 0;letter-spacing:.3px;animation:glow 3s ease-in-out infinite}
 
-.brand-strip{text-align:center;padding:24px 0 8px;margin:0 -20px;background:linear-gradient(180deg,rgba(12,34,71,.6) 0%,transparent 100%)}
-.brand-strip-label{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:14px}
-.brand-logos{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:nowrap;overflow:hidden;padding:0 10px}
-.brand-logo{height:32px;width:auto;opacity:.7;filter:brightness(0) invert(1);transition:all .3s}
-.brand-logo:hover{opacity:1;transform:scale(1.15);filter:brightness(0) invert(1) drop-shadow(0 0 8px rgba(250,204,21,.4))}
+.brand-strip{text-align:center;padding:0 16px;margin:16px 0}
+.brand-strip-label{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:12px}
+.brand-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 4px}
+.brand-logo-card{border:1px solid rgba(250,204,21,.25);border-radius:10px;padding:14px 10px;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 0 8px rgba(250,204,21,.08)}
+.brand-logo-card:hover{border-color:#facc15;box-shadow:0 0 20px rgba(250,204,21,.25);transform:translateY(-2px)}
+.brand-logo{height:36px;width:auto;max-width:110px;object-fit:contain}
 
 .cta-section{text-align:center;padding:28px 0 32px}
 .btn-cta{display:inline-block;background:linear-gradient(135deg,#facc15,#eab308);color:#001233;font-weight:800;font-size:1.1rem;padding:18px 36px;border:none;border-radius:12px;cursor:pointer;text-transform:uppercase;letter-spacing:.8px;width:100%;font-family:inherit;position:relative;overflow:hidden;transition:all .3s;animation:glow 2s ease-in-out infinite}
@@ -47,7 +48,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(250,204,21,.35)}
 .btn-cta:active{transform:translateY(0)}
 
-.badge{padding:16px 0 12px;text-align:center}
+.badge{padding:16px 0 12px;text-align:center;margin-top:16px}
 .badge .icon{font-size:2.4rem;margin-bottom:4px;display:block;line-height:1}
 .badge .title{font-size:1.3rem;font-weight:900;color:#facc15;text-transform:uppercase;letter-spacing:2.5px;line-height:1.2}
 .badge .desc{font-size:.82rem;color:#94a3b8;margin-top:4px;font-weight:500;letter-spacing:.3px}
@@ -144,12 +145,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
     <div class="brand-strip fade-up fade-up-d2">
       <div class="brand-strip-label">Proteção para as principais montadoras</div>
       <div class="brand-logos">
-        <img src="scania.svg" alt="Scania" class="brand-logo">
-        <img src="volvo-logo-1.svg" alt="Volvo" class="brand-logo">
-        <img src="volkswagen-9.svg" alt="Volkswagen" class="brand-logo">
-        <img src="daf_caminhoes.png" alt="DAF" class="brand-logo">
-        <img src="man-1.svg" alt="MAN" class="brand-logo">
-        <img src="mercedes-benz-8.svg" alt="Mercedes-Benz" class="brand-logo">
+        <div class="brand-logo-card"><img src="scania.svg" alt="Scania" class="brand-logo"></div>
+        <div class="brand-logo-card"><img src="volvo-logo-1.svg" alt="Volvo" class="brand-logo"></div>
+        <div class="brand-logo-card"><img src="volkswagen-9.svg" alt="Volkswagen" class="brand-logo"></div>
+        <div class="brand-logo-card"><img src="daf_caminhoes.png" alt="DAF" class="brand-logo"></div>
+        <div class="brand-logo-card"><img src="man-1.svg" alt="MAN" class="brand-logo"></div>
+        <div class="brand-logo-card"><img src="mercedes-benz-8.svg" alt="Mercedes-Benz" class="brand-logo"></div>
       </div>
     </div>
 
