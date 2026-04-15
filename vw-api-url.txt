@@ -1,0 +1,4 @@
+uid=15_0 RootWebArea url="https://commons.wikimedia.org/w/api.php?action=query&titles=File:Volkswagen_-_Logo.svg&prop=imageinfo&iiprop=url&format=json"
+  uid=15_1 StaticText "{"batchcomplete":"","query":{"normalized":[{"from":"File:Volkswagen_-_Logo.svg","to":"File:Volkswagen - Logo.svg"}],"pages":{"129094537":{"pageid":129094537,"ns":6,"title":"File:Volkswagen - Logo.svg","imagerepository":"local","imageinfo":[{"url":"https://upload.wikimedia.org/wikipedia/commons/2/23/Volkswagen_-_Logo.svg","descriptionurl":"https://commons.wikimedia.org/wiki/File:Volkswagen_-_Logo.svg","descriptionshorturl":"https://commons.wikimedia.org/w/index.php?curid=129094537"}]}}}}"
+  uid=15_2 StaticText "Estilos de formatação"
+  uid=15_3 checkbox "Estilos de formatação"
