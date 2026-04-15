@@ -33,6 +33,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
 .hero .sub-text{font-size:.88rem;color:#cbd5e1;line-height:1.6;padding:0 4px;margin-bottom:0}
 .hero .sub-text .hl{color:#facc15;font-weight:600}
 
+.exclusive-text{font-size:1.05rem;font-weight:800;color:#facc15;text-align:center;line-height:1.5;padding:14px 18px;background:linear-gradient(135deg,rgba(250,204,21,.1) 0%,rgba(234,179,8,.06) 100%);border:2px solid rgba(250,204,21,.35);border-radius:12px;margin:8px 0 0;letter-spacing:.3px;animation:glow 3s ease-in-out infinite}
+
+.brand-strip{text-align:center;padding:24px 0 8px;margin:0 -20px;background:linear-gradient(180deg,rgba(12,34,71,.6) 0%,transparent 100%)}
+.brand-strip-label{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:14px}
+.brand-logos{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:nowrap;overflow:hidden;padding:0 10px}
+.brand-logo{height:32px;width:auto;opacity:.7;filter:brightness(0) invert(1);transition:all .3s}
+.brand-logo:hover{opacity:1;transform:scale(1.15);filter:brightness(0) invert(1) drop-shadow(0 0 8px rgba(250,204,21,.4))}
+
 .cta-section{text-align:center;padding:28px 0 32px}
 .btn-cta{display:inline-block;background:linear-gradient(135deg,#facc15,#eab308);color:#001233;font-weight:800;font-size:1.1rem;padding:18px 36px;border:none;border-radius:12px;cursor:pointer;text-transform:uppercase;letter-spacing:.8px;width:100%;font-family:inherit;position:relative;overflow:hidden;transition:all .3s;animation:glow 2s ease-in-out infinite}
 .btn-cta::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:shimmer 2.5s infinite}
@@ -130,13 +138,24 @@ body{font-family:'Inter',system-ui,sans-serif;background:#001233;color:#fff;min-
     <div class="hero">
       <img src="Logo-Truck_Prancheta-1.png" alt="APVS Truck" class="logo">
       <h1 class="fade-up">TE FALAM QUE COBREM TUDO, MAS NÃO TE EXPLICAM <span class="hl">COMO COBREM</span></h1>
-      <p class="sub-text fade-up fade-up-d1"><span class="hl">Por mais que você já tenha uma proteção até limitada em seu caminhão, parabenizo pela conscientização de buscar uma solução completa e 100% regulada pela SUSEP.</span></p>
+      <p class="exclusive-text fade-up fade-up-d1">Essa proteção exclusiva e personalizada é pra você e sua ferramenta de trabalho.</p>
+    </div>
+
+    <div class="brand-strip fade-up fade-up-d2">
+      <div class="brand-strip-label">Proteção para as principais montadoras</div>
+      <div class="brand-logos">
+        <img src="scania.svg" alt="Scania" class="brand-logo">
+        <img src="volvo-logo-1.svg" alt="Volvo" class="brand-logo">
+        <img src="volkswagen-9.svg" alt="Volkswagen" class="brand-logo">
+        <img src="daf_caminhoes.png" alt="DAF" class="brand-logo">
+        <img src="man-1.svg" alt="MAN" class="brand-logo">
+        <img src="mercedes-benz-8.svg" alt="Mercedes-Benz" class="brand-logo">
+      </div>
     </div>
 
     <div class="badge fade-up fade-up-d2">
       <div class="icon">🚛</div>
       <div class="title">A Proteção da Pesada</div>
-      <div class="desc">Benefícios exclusivos com a APVS Truck</div>
     </div>
 
     <div class="benefits">
@@ -346,21 +365,19 @@ async function submitQuiz() {
     'token': UAZAPI_TOKEN
   };
 
-  // Msg 1: video + caption (send immediately)
-  try {
-    await fetch(UAZAPI_URL + '/send/media', {
-      method: 'POST',
-      headers: reqHeaders,
-      body: JSON.stringify({
-        number: phone,
-        type: 'video',
-        file: VIDEO_URL,
-        text: caption
-      })
-    });
-  } catch(e) { console.error('Video send error:', e); }
+  // Msg 1: video + caption (fire-and-forget — don't wait for response)
+  fetch(UAZAPI_URL + '/send/media', {
+    method: 'POST',
+    headers: reqHeaders,
+    body: JSON.stringify({
+      number: phone,
+      type: 'video',
+      file: VIDEO_URL,
+      text: caption
+    })
+  }).catch(function(e) { console.error('Video send error:', e); });
 
-  // Redirect to obrigado with phone + followUp as URL params (obrigado page will send msg2 after 60s)
+  // Redirect immediately to obrigado
   var params = '?p=' + encodeURIComponent(phone) + '&m=' + encodeURIComponent(followUp);
   window.location.href = 'obrigado.html' + params;
 }
